@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script>
+                function login(event) {
+                  event.preventDefault();
+                  const user = $("#name").val();
+                  const password = $("#password").val();
+                  console.log(user+"   "+password);      
+            
+                  $.post("http://localhost:8080/signup", { user: user, password:password }, (data, status) => {
+                    
+                    alert(data);
+
+                    
+            
+                  });
+                }
+              </script>
+<title>Page Title</title>
+</head>
+<body>
+
+    <form action="/signup" >
+        name:<br>
+        <input type="text" id="name"name="name" value="user">
+        <br>
+        password:<br>
+        <input type="text" id="password" name="password" value="password">
+        <br><br>
+        <input type="submit" value="Submit" onclick="login(event)">
+      </form> 
+</body>
+</html>
